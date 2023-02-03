@@ -24,7 +24,7 @@ const Login = () => {
   })
 
 
-  const { login, loginWithGoogle } = useAuth();
+  const { login } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({
     email: "",
@@ -33,10 +33,6 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleGoogle = async () => {
-    await loginWithGoogle();
-    navigate("/");
-  }
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -109,11 +105,6 @@ const Login = () => {
         <div className='container-input'>
           <img src={enter1} alt="Icon Enter" />
           <button type="submit">Login</button>
-        </div>
-        <span>or</span>
-        <div className='container-input'>
-          <img src={google1} alt="Icon Enter" />
-          <button className='google' onClick={handleGoogle}>Sign In with Google</button>
         </div>
         <p>Don't have an account?
           <Link to="/register">Register</Link>

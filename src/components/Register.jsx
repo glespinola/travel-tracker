@@ -9,7 +9,7 @@ import { useAuth } from '../context/authContext';
 import { Link, useNavigate } from 'react-router-dom'
 
 const Register = () => {
-  const { signup, loginWithGoogle } = useAuth();
+  const { signup } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({
     email: "",
@@ -18,10 +18,6 @@ const Register = () => {
 
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const handleGoogle = async () => {
-    await loginWithGoogle();
-    navigate("/");
-  }
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -89,11 +85,6 @@ const Register = () => {
         <div className='container-input'>
           <img src={enter1} alt="Icon Enter" />
           <button type="submit">Register</button>
-        </div>
-        <span>or</span>
-        <div className='container-input'>
-          <img src={google1} alt="Icon Enter" />
-          <button className='google' onClick={handleGoogle}>Sign Up with Google</button>
         </div>
         <p>Already have an account?
           <Link to="/login" >Login</Link>
