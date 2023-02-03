@@ -81,8 +81,8 @@ const Login = () => {
         className={`hamburger-menu-nav ${isOpen ? "open" : ""}`}
       >
         <a onClick={() => setIsOpen(!isOpen)} href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
         <p className="hamburger-menu-p">Made by<a href="https://github.com/glespinola" target='_blank'>glespinola</a></p>
       </nav>
       <div>
