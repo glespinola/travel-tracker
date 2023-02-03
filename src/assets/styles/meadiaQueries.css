@@ -1,0 +1,61 @@
+/* Adaptation for screens with a width of 320px */
+@media (min-width: 320px) {
+  .register {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .register h1 {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+
+  .hamburger-menu-button {
+    top: 10px;
+    right: 10px;
+  }
+
+  .container {
+    margin-top: 2rem;
+  }
+}
+
+/* Adaptation for screens with a width of 768px */
+@media (min-width: 768px) {
+  .register {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .register h1 {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bolder;
+  }
+
+  .register .login {
+    font-size: 1.3rem;
+    font-weight: thin;
+  }
+
+  .hamburger-menu-button {
+    top: 30px;
+    right: 30px;
+  }
+
+  input {
+    width: 30vw;
+  }
+
+  .table-container {
+    width: 40vw;
+  }
+}

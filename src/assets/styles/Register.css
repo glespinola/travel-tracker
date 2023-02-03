@@ -1,0 +1,183 @@
+.register {
+  font-size: 1rem;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #fff;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 80vw;
+  height: 100%;
+  gap: 1rem;
+}
+
+.register h1 {
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.register p:first-child {
+  color: #000;
+  font-weight: 300;
+  text-align: center;
+}
+
+.login {
+  color: #fff;
+  text-align: center;
+}
+
+.register a {
+  color: #000;
+  font-weight: 300;
+  font-size: .9rem;
+}
+
+.register label {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.register input[type="text"],
+input[type="password"],
+input[type="email"] {
+  outline: 1px solid #000;
+  width: 55vw;
+  padding: 10px;
+}
+
+.register button[type="submit"],
+.google {
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16.1px;
+  width: 60vw;
+  border-radius: 0px 10px 10px 0px;
+  margin-right: .3rem;
+}
+
+.register button:hover {
+  background-color: #fff;
+  color: #000;
+  outline: 1px solid #000;
+}
+
+.container-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-input img {
+  height: 20px;
+  padding: 8.5px;
+  background-color: rgb(0, 0, 0);
+  outline: 1px solid #000;
+  border-radius: 10px 0px 0px 10px;
+  color: #fff;
+}
+
+.error-message {
+  color: #000;
+  text-align: center;
+  outline: 1px solid #fff;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.hamburger-menu-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hamburger-menu-button__line {
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+}
+
+.hamburger-menu-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 80%;
+  background-color: #fff;
+  transition: right 0.5s ease;
+  z-index: 9;
+}
+
+.hamburger-menu-nav.open {
+  right: 0;
+  background-color: #fff;
+}
+
+.hamburger-menu-nav a {
+  display: block;
+  padding: 20px;
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.hamburger-menu-nav a:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.hamburger-menu-p {
+  color: #000;
+  display: flex;
+  align-items: center;
+  font-size: .9rem;
+}
+
+.hamburger-menu-p a {
+  font-weight: 500;
+  color: rgb(56, 165, 165);
+  font-size: 1.3rem;
+  text-transform: lowercase;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  letter-spacing: 0px;
+  font-size: 1rem;
+}
+
+.hamburger-menu-p a:hover {
+  background: none;
+  color: rgb(56, 165, 165);
+}
+
+.hamburger-menu-p a:first-letter {
+  font-weight: 500;
+  font-size: 2.34rem;
+  color: rgb(15, 200, 172);
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: -3px;
+
+}
