@@ -24,7 +24,7 @@ const Login = () => {
   })
 
 
-  const { login } = useAuth();
+  const { login, loginWithGoogle } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({
     email: "",
@@ -33,6 +33,10 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const handleGoogle = async () => {
+    await loginWithGoogle();
+    navigate("/");
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
