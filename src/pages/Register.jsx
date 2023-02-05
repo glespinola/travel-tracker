@@ -7,59 +7,41 @@ import google1 from '../assets/img/google-img-logo.png'
 import { useState } from 'react'
 import { useAuth } from '../context/authContext';
 import { Link, useNavigate } from 'react-router-dom'
-import Swal from 'sweetalert2'
+import SideBarMenu from '../components/SideBarMenu'
 
-const Login = () => {
-
-  const Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-  })
-
-
-  const { login, loginWithGoogle } = useAuth();
+const Register = () => {
+  const { signup, loginWithGoogle } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
   const handleGoogle = async () => {
     await loginWithGoogle();
     navigate("/");
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     try {
-      await login(user.email, user.password);
+      await signup(user.email, user.password);
       navigate("/");
-      Toast.fire({
-        icon: 'success',
-        title: 'Login Successful'
-      })
     } catch (error) {
       switch (error.code) {
         case 'auth/invalid-email':
-          setError('Invalid email, please try again');
+          setError('Invalid email address')
           break;
         case 'auth/internal-error':
           setError('Please, complete all fields');
           break;
-        case 'auth/user-not-found':
-          setError('User not found, please try again');
+        case 'auth/weak-password':
+          setError('Password should be at least 6 characters');
           break;
-        case 'auth/wrong-password':
-          setError('Wrong password, please try again...');
+        case 'auth/email-already-in-use':
+          setError('Email address already in use');
           break;
         default:
           break;
@@ -69,26 +51,10 @@ const Login = () => {
 
   return (
     <div className="register">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`hamburger-menu-button ${isOpen ? "open" : ""}`}
-      >
-        <span className="hamburger-menu-button__line"></span>
-        <span className="hamburger-menu-button__line"></span>
-        <span className="hamburger-menu-button__line"></span>
-      </button>
-      <nav
-        className={`hamburger-menu-nav ${isOpen ? "open" : ""}`}
-      >
-        <a onClick={() => setIsOpen(!isOpen)} href="#">Home</a>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-        <p className="hamburger-menu-p">Made by<a href="https://github.com/glespinola" target='_blank'>glespinola</a></p>
-      </nav>
       <div>
-        <h1>Sing In your account</h1>
-        <p className='login'>Get started with your account</p>
-
+        <h1>Sing Up your account</h1>
+        <p className='login'>Get started with your new account</p>
+        <SideBarMenu />
       </div>
       {<p className='error-message'>{error}</p>}
       <form onSubmit={handleSubmit}>
@@ -108,14 +74,19 @@ const Login = () => {
         </label>
         <div className='container-input'>
           <img src={enter1} alt="Icon Enter" />
-          <button type="submit">Login</button>
+          <button type="submit">Register</button>
         </div>
-        <p>Don't have an account?
-          <Link to="/register">Register</Link>
+        <span>or</span>
+        <div className='container-input'>
+          <img src={google1} alt="Icon Enter" />
+          <button className='google' onClick={handleGoogle}>Sign Up with Google</button>
+        </div>
+        <p>Already have an account?
+          <Link to="/login" >Login</Link>
         </p>
       </form>
     </div>
   )
 }
 
-export default Login
+export default Register

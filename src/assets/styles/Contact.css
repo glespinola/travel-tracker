@@ -1,0 +1,38 @@
+.container-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  margin-top: 2rem;
+  gap: 1rem;
+  width: 100vw;
+  height: 100%;
+}
+
+.container-contact input[type="text"],
+input[type="email"],
+textarea {
+  outline: 1px solid #000;
+  width: 55vw;
+  padding: 10px;
+}
+
+.container-contact button[type="submit"] {
+  cursor: pointer;
+  width: 55vw;
+}
+
+.container-contact button[type="submit"]:hover {
+  color: #fff;
+  background-color: #000;
+  outline: 1px solid #fff;
+}
+
+.description-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  font-size: 1rem;
+}

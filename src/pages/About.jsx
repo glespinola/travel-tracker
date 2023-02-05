@@ -1,37 +1,12 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../context/authContext';
-import '../assets/styles/About.css'
 import '../assets/styles/Register.css'
+import '../assets/styles/About.css'
+import SideBarMenu from '../components/SideBarMenu';
+
 const About = () => {
-  const { logout } = useAuth();
-  const [isOpen, setIsOpen] = useState(false);
-  const handleLogout = async () => {
-    try {
-      await logout();
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
+
   return (
     <div className='about'>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`hamburger-menu-button ${isOpen ? "open" : ""}`}
-      >
-        <span className="hamburger-menu-button__line"></span>
-        <span className="hamburger-menu-button__line"></span>
-        <span className="hamburger-menu-button__line"></span>
-      </button>
-      <nav
-        className={`hamburger-menu-nav ${isOpen ? "open" : ""}`}
-      >
-        <a onClick={() => setIsOpen(!isOpen)} href="#">Home</a>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-        <a className='btn-logout show' onClick={handleLogout}>Logout</a>
-        <p className="hamburger-menu-p">Made by<a href="https://github.com/glespinola" target='_blank'>glespinola</a></p>
-      </nav>
+      <SideBarMenu />
       <h1>"Travel Tracker App: Your Personal Journey Companion"</h1>
       <p>
         This app is the perfect solution for travelers looking to keep track of their journeys. Simply log your trip by adding the "Destination," the cost, and the date. The app stores all your travel logs in a database, making it easy to access and review your past trips.

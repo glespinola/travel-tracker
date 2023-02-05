@@ -109,3 +109,7 @@ button {
   border-radius: 10px;
   border: none;
 }
+
+.welcome-p {
+  font-size: .9rem;
+}

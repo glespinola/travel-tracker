@@ -1,11 +1,11 @@
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Home from "./components/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Home from "./pages/Home";
 import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from "./context/authContext";
 import { ProtectedRoute } from "./components/ProtectedRoute";
-import About from "./components/About";
-import Contact from "./components/Contact";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 
 function App() {

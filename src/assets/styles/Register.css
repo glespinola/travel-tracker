@@ -179,5 +179,8 @@ input[type="email"] {
   color: rgb(15, 200, 172);
   font-family: 'Courier New', Courier, monospace;
   letter-spacing: -3px;
+}
 
+.btn-logout {
+  cursor: pointer;
 }

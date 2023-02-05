@@ -1,9 +1,9 @@
 import '../App.css';
 import { useState, useEffect } from 'react'
 import { useAuth } from '../context/authContext';
-import { Link } from 'react-router-dom';
 import { db } from '../firebase';
-import { collection, addDoc, doc, onSnapshot, query, QuerySnapshot, where } from "firebase/firestore";
+import { collection, addDoc, doc, onSnapshot, query, querySnapshot, where } from "firebase/firestore";
+import SideBarMenu from '../components/SideBarMenu';
 
 function calculateTotal(trips) {
   return trips.reduce((acc, trip) => acc + parseFloat(trip.price), 0).toFixed(2);
@@ -11,18 +11,9 @@ function calculateTotal(trips) {
 
 
 const Home = () => {
-  const { user, logout } = useAuth();
-  const [isOpen, setIsOpen] = useState(false);
+  const { user } = useAuth();
   const [trips, setTrips] = useState([]);
   const total = calculateTotal(trips);
-
-  const handleLogout = async () => {
-    try {
-      await logout();
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
 
   const travelsCollection = collection(db, "travels");
   const q = query(travelsCollection, where("userId", "==", user.uid));
@@ -53,27 +44,11 @@ const Home = () => {
   };
   return (
     <div className="container">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`hamburger-menu-button ${isOpen ? "open" : ""}`}
-      >
-        <span className="hamburger-menu-button__line"></span>
-        <span className="hamburger-menu-button__line"></span>
-        <span className="hamburger-menu-button__line"></span>
-      </button>
-      <nav
-        className={`hamburger-menu-nav ${isOpen ? "open" : ""}`}
-      >
-        <a onClick={() => setIsOpen(!isOpen)} href="#">Home</a>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-        <a className='btn-logout show' onClick={handleLogout}>Logout</a>
-        <p className="hamburger-menu-p">Made by<a href="https://github.com/glespinola" target='_blank'>glespinola</a></p>
-      </nav>
+      <SideBarMenu />
       <div className="welcome">
       </div>
       <h1>Travel Tracker</h1>
-      <p>Welcome {user.displayName || user.email}</p>
+      <p className="welcome-p" >Welcome {user.displayName || user.email}</p>
       <form onSubmit={handleSubmit} className="form-container">
         <label>
           Destination:
