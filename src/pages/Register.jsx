@@ -11,7 +11,6 @@ import SideBarMenu from '../components/SideBarMenu'
 
 const Register = () => {
   const { signup, loginWithGoogle } = useAuth();
-  const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -19,6 +18,7 @@ const Register = () => {
 
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
   const handleGoogle = async () => {
     await loginWithGoogle();
     navigate("/");
@@ -76,11 +76,11 @@ const Register = () => {
           <img src={enter1} alt="Icon Enter" />
           <button type="submit">Register</button>
         </div>
-        <span>or</span>
+        {/* <span>or</span>
         <div className='container-input'>
           <img src={google1} alt="Icon Enter" />
           <button className='google' onClick={handleGoogle}>Sign Up with Google</button>
-        </div>
+        </div> */}
         <p>Already have an account?
           <Link to="/login" >Login</Link>
         </p>

@@ -1,6 +1,15 @@
 import '../assets/styles/StartPage.css'
 import Logo from '../assets/img/logo.png'
+import { useEffect } from 'react';
 const StartPage = () => {
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 3000)
+  }, [])
+
+
   return (
     <div className="StartPage">
       <h1>Travel Tracker</h1>
