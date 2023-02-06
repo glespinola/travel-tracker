@@ -6,7 +6,7 @@ import { AuthProvider } from "./context/authContext";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-
+import StartPage from "./components/StartPage";
 
 function App() {
 
@@ -21,6 +21,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/startpage" element={<StartPage />} />
       </Routes>
     </AuthProvider>
   );

@@ -466,7 +466,7 @@
       "sizes": "1024x1024"
     }
   ],
-  "start_url": "/StartPage",
+  "start_url": "/startpage",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
